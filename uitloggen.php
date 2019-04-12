@@ -1,8 +1,7 @@
 <?php
+    session_start();
 // vind Sessie
-// einde sessie melden echo "tot ziens" . $_SESSION['USER'];
-
-include 'inloggen.php';
+echo "tot ziens" . $_SESSION['USER'];
 
 $_SESSION['STATUS'] = 0;
 // verwijder sessie

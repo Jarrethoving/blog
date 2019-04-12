@@ -15,16 +15,19 @@
 
       <div class="blogposts">
         <?php
+          session_start();
+            var_dump($_SESSION);
+          $bestand = fopen("blogs.txt", "r");
 
-          $bestand=fopen("blogs.txt", "r");
           if(!$bestand){
-
             echo "Kon geen bestand openen!";
 
-          } while(!feof($bestand)){
+          }
+
+          while(!feof($bestand)) {
             $input = fgets($bestand);
             echo $input . "\n";
-            }
+          }
 
          ?>
        </div>
@@ -33,24 +36,17 @@
        </form>
 
        <?php
-       include 'inloggen.php';
+           var_dump($_SESSION);
       if(isset($_POST['maak'])) {
-        if($post->canPost()) {
-
-        echo "
-        <script>
-            location.href='blogs.html';
-        </script>
-        ";
-
+          if($_SESSION['STATUS'] == 2) {
+              echo
+              "
+            <script>
+              location.href='blogs.html';
+            </script>
+            ";
         } else {
-          echo "
-          <script>
-              location.href='index.html';
-          </script>
-          ";
         }
-
       }
       ?>
 
