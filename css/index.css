@@ -16,33 +16,36 @@ padding: 0;
 }
 
 .blogposts{
-  margin-top: 40px;
+  margin-top: 20px;
   width: 900px;
   height: auto;
   margin-left: 100px;
   text-align: left;
-  padding-bottom: 200px;
   padding-left: 10px;
   box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white,  -8px  1px rgba(0, 0, 0);
+  display: inline-block;
 
 }
-.blogposts h2  {
-margin-top: 100px;
+ .blogposts p  {
+margin-bottom: 50px;
 
 }
 
-.button {
-  margin-top: 20px;
-  margin-left:  90px;
-  margin-bottom: 40px;
+
+
+input[type=submit]{
+  background-color: rgb(0, 110, 255);
+  rgb(255, 255, 255);
+  width: 100px;
   height: 50px;
-  background-color: rgb(0, 87, 255);
-  border-radius: 2px black;
+  margin-left: 90px;
+  margin-top: 20px;
+  margin-bottom:  50px;
 }
 
-.button b{
-  padding-left: 10px;
-  padding-right: 10px;
+a{
+  padding-left: 20px;
+  text-decoration: none;
   color: white;
 }
 /* .input{

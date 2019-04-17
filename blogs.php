@@ -16,7 +16,8 @@
       <div class="blogposts">
         <?php
           session_start();
-            var_dump($_SESSION);
+          $naam = htmlspecialchars($_POST['naam']);
+            // var_dump($_SESSION);
           $bestand = fopen("blogs.txt", "r");
 
           if(!$bestand){
@@ -26,17 +27,19 @@
 
           while(!feof($bestand)) {
             $input = fgets($bestand);
-            echo $input . "\n";
+            echo  $input . "\n";
           }
 
          ?>
        </div>
-       <form class="knop" method="post">
-         <input type="submit" name="maak" value="hoi">
+
+
+       <form class="form" method="post">
+         <input type="submit" name="maak" value="plaats een blog">
        </form>
 
        <?php
-           var_dump($_SESSION);
+           // var_dump($_SESSION);
       if(isset($_POST['maak'])) {
           if($_SESSION['STATUS'] == 2) {
               echo
@@ -46,6 +49,7 @@
             </script>
             ";
         } else {
+          echo "<script>alert('Je moet eerst inloggen om een blog te posten.');</script>";
         }
       }
       ?>
@@ -59,14 +63,21 @@
         echo "Kon geen bestand openen";
       }
 
+
+
       $titel = htmlspecialchars($_POST['titel']);
       $text = htmlspecialchars($_POST['text']);
-      $input = '<h2>'.$titel.'</h2>'  . '<p>' .$text. '</p>';
+      // er voor zorgen dat hij alleen post als er input in zit.
+
+      if($text && $titel != ""){
+      $input = "<h2>" .$titel ."</h2>" . "<p>" . $text . "</p>" . "\n";
       fwrite($bestand,$input,strlen($input));
+      // post variabelen leeg maken
       if(fclose($bestand)) {
       } else {
         echo "Kon bestand niet afsluiten.";
       }
+    }
       ?>
 
     </div>
